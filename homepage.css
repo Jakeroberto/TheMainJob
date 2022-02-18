@@ -1,0 +1,62 @@
+body{
+    margin:0;
+    padding:0;
+}
+
+header{
+    background:black;
+    height:20vh;
+    width:100vw;
+}
+
+#log-in-button{
+    position:absolute;
+    top:20px;
+    right:10px;
+    background:white;
+    color:black;
+    height:50px;
+    width:100px;
+    font-size:20px;
+}
+
+#sign-up-button{
+    position: absolute;
+    top:80px;
+    right:10px;
+    background:white;
+    color:black;
+    height:50px;
+    width:100px;
+    font-size:20px;
+}
+
+#search-bar{
+   height:30px;
+   width:400px;
+   position:absolute;
+   top:27px;
+   left:350px;
+}
+
+#categories-button{
+    position:absolute;
+    top:0px;
+    left:1000px;
+    height:50px;
+    width:100px;
+    background:black;
+    color:white;
+    border:1px solid black;
+}
+
+#brands-button{
+    position:absolute;
+    top:0px;
+    left:1200px;
+    height:50px;
+    width:100px;
+    background:black;
+    color:white;
+    border:1px solid black;
+}

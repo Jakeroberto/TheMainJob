@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=<device-width>, initial-scale=1.0">
+  <title>Document</title>
+
+  <style>
+    .search-grid{
+      display:grid;
+      grid-template-areas: 'header''menu''footer';
+      grid-gap:10px;
+      padding:10px;
+      height:650px;
+      width:400px;
+    }
+
+    .search-grid > div {
+      text-align:center;
+      padding:20px;
+      font-size:30px;
+      background-color:white;
+    }
+
+    .info-box{
+      height:100px;
+      border:5px solid black;
+    }
+
+    .product-box{
+      height:300px;
+      border: 5px solid black;
+    }
+
+    .price-box{
+      height:100px;
+      position:relative;
+      border: 2px solid black;
+    }
+
+    .total-price{
+      height:50px;
+      width:50px;
+      position:absolute;
+      top:40px;
+      left:160px;
+    }
+
+    .order{
+      position:absolute;
+      bottom:0px;
+      left:145px;
+      height:30px;
+    }
+
+    #quantity{
+      width:40px;
+    }
+
+  </style>
+</head>
+<body>
+
+<div class="search-grid">
+    <div class="info-box">
+       <p>test:test</p>
+       <p>test:test</p>
+       <p>test:test</p>
+    </div>
+    <div class="product-box">
+     <p>budweiser 20 pack</p>
+     <img src="img/budweiser.png">
+    </div>
+    <div class="price-box">
+      <div class="quantity">
+        <button class="btn minus-btn disabled type=button">-</button>
+        <input type="text" id="quantity" value="1">
+        <button class="btn plus-btn disabled" type="button">+</button>
+</div>
+       <p class="total-price">
+       <span><i class="fa fa-pounds"></i></span>
+       <span id="price">13.99</span>
+       </p>
+       <button class="order" type="submit">Add to basket</button> 
+    </div>
+</div>
+
+
+<script>
+  document.querySelector(".minus-btn").setAttribute("disabled", "disabled");
+
+  var valueCount
+
+  var price = document.getElementById("price").innerText;
+
+  function priceTotal()
+  {
+      var total = valueCount * price;
+      document.getElementById("price").innerText = total
+  }
+
+  document.querySelector(".plus-btn").addEventListener("click", function()
+  {
+      valueCount = document.getElementById("quantity").value;
+
+      valueCount++;
+
+      document.getElementById("quantity").value = valueCount
+
+      if (valueCount > 0){
+          document.querySelector(".minus-btn").removeAttribute("disabled")
+          document.querySelector(".minus-btn").classList.remove("disabled")
+      }
+
+      priceTotal()
+  })
+
+  document.querySelector(".minus-btn").addEventListener("click", function()
+  {
+      valueCount = document.getElementById("quantity").value;
+      
+      valueCount--;
+
+      document.getElementById("quantity").value = valueCount
+
+      if(valueCount == 0){
+          document.querySelector(".minus-btn").setAttribute("disabled","disabled")
+      }
+      priceTotal()
+  })
+</script>
+
+  </body>
+
+</html>

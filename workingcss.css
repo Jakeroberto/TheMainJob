@@ -1,0 +1,92 @@
+#searchButton{
+    position:absolute;
+    top:27px;
+    left:755px;
+    height:36px;
+    width:60px;
+}
+
+        .grid{
+            display:grid;
+            grid-template-columns: auto auto auto auto auto auto;
+            padding:10px;
+            position:relative;
+        }
+
+        .item-box{
+            border:5px solid black;
+            height:350px;
+            width:300px;
+            align-items:center;
+            position:relative;
+            padding:5px;
+         }
+         
+         .item-details{
+             position:absolute;
+             top:5px;
+             left:30px;
+             font-size:30px;
+         }
+
+        
+         .order{
+             position:absolute;
+             bottom:0px;
+             right:0px;
+             height:40px;
+             width:60px;
+         }
+
+        .quantity{
+            display:flex;
+            justify-content: center;
+            position:absolute;
+            bottom:0px;
+
+        }
+        
+        .quantity button{
+            width:30px;
+            height:30px;
+            border: 1 px solid black;
+            border-radius:0;
+        }
+        
+        .quantity input{
+            border-top: 1px solid black;
+            border-bottom:1px solid black;
+            text-align: center;
+            width:44px;
+            height:25.5px;
+            font-size:20px;
+            position:absolute;
+            bottom:40px;
+            left:25px;
+        }
+        
+        .total-price{
+            text-align:center;
+            font-size:20px;
+            position:absolute;
+            bottom:5px;
+        }
+
+        .minus-btn{
+            position:absolute;
+            bottom:40px;
+            left:0px;
+
+        }
+
+        .plus-btn{
+            position:absolute;
+            bottom:40px;
+            left:77px;
+        }
+
+        #price{
+            position: absolute;
+            bottom:-20px;
+            left:30px;
+        }

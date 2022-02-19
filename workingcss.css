@@ -30,7 +30,7 @@
          }
 
         
-         .order{
+         .add-to-basket{
              position:absolute;
              bottom:0px;
              right:0px;
@@ -84,9 +84,12 @@
             bottom:40px;
             left:77px;
         }
+       
 
         #price{
             position: absolute;
             bottom:-20px;
             left:30px;
         }
+
+       

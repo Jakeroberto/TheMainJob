@@ -80,7 +80,7 @@ $sql = "SELECT * FROM storeDB.Products WHERE ProductName LIKE '%$search%' OR Cat
       <span><i class="fa fa-pounds"></i></span>
       <span id="price">13.99</span>
       </p>
-      <button class="order" type="submit">Add to basket</button> 
+      <button class="add-to-basket" type="submit" id="add-to-basket1">Add to basket</button> 
      </div>
 </div>
 </div> 
@@ -139,6 +139,24 @@ h1{
   top:150px;
   left:50px;
 }
+button:hover{
+            background:black;
+            color:white;
+        }
+        #log-in-button:hover{
+            background:black;
+            color:white;
+        }
+        #sign-up-button:hover{
+            background:black;
+            color:white;
+        }
+        a{
+            color:black;
+        }
+        a:hover{
+            color:white;;
+        }
 </style>
 
 <script>

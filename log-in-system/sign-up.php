@@ -9,13 +9,40 @@
 
 <?php
 $firstname = $surname = $email = $username = $password = "";
+$Err = "";
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-$firstname = test_input($_POST)["firstname"];
-$surname = test_input($_POST)["surname"];
-$email = test_input($_POST)["email"];
-$username = test_input($_POST["username"]);
-$password = test_input($_POST["password"]);
+  if (empty($_POST["firstname"])){
+    $Err = "Required field*";
+  } else {
+    $firstname = test_input($_POST)["firstname"];
+  }
+
+  if (empty($_POST["surname"])){
+    $Err = "Required field*";
+  } else {
+    $surname = test_input($_POST)["surname"];
+  }
+
+  if (empty($_POST["email"])){
+    $Err = "Required field*";
+  } else {
+    $email = test_input($_POST)["email"];
+  }
+
+  if (empty($_POST["username"])){
+    $Err = "Required field*";
+  } else {
+    $username = test_input($_POST)["username"];
+  }
+
+  if (empty($_POST["password"])){
+    $Err = "Required field*";
+  } else {
+    $password = test_input($_POST)["password"];
+  }
+
+
 
     function test_input($data) {
     $data = trim($data);
@@ -26,14 +53,112 @@ $password = test_input($_POST["password"]);
 }
 ?>
 
+<div class="sign-up-div">
+    <img id="logo" src="/TheMainJob/store-logo.png">
 <form action="sign-up-datapasser.php" method="post">
-First Name: <input type="text" name="firstname"><br>
-Surname: <input type="text" name="surname"><br>
-Email: <input type="text" name="email"><br>
-Username: <input type="text" name="username"><br>
-Password: <input type="text" name="password"><br>
-<input type="submit">
+<p id="first-name-text"> First Name: </p> <input id="first-name" type="text" name="firstname"><br>
+<span class="error">* <?php echo $Err;?></span>
+<br><br>
+<p id="surname-text"> Surname: </p> <input id="surname" type="text" name="surname"><br>
+<span class="error">* <?php echo $Err;?></span>
+<br><br>
+<p id="email-text"> Email: </p> <input id="email" type="text" name="email"><br>
+<span class="error">* <?php echo $Err;?></span>
+<br><br>
+<p id="username-text"> Username: </p> <input id="username" type="text" name="username"><br>
+<span class="error">* <?php echo $Err;?></span>
+<br><br>
+<p id="password-text"> Password: </p> <input id="password" type="password" name="password"><br>
+<span class="error">* <?php echo $Err;?></span>
+<br><br>
+<input id="submit-button" type="submit">
 </form>
+</div>
+
+<style>
+  body{
+    color:white;
+    background:black;
+  }
+
+  #logo{
+  position:absolute;
+  top:20px;
+  left:180px;
+  }
+  .sign-up-div{
+    height:700px;
+    width:600px;
+    border:5px solid white;
+    position:absolute;
+    top:10vh;
+    left:35vw;
+  }
+  #first-name{
+      position:absolute;
+      top:310px;
+      left:200px;
+  }
+  #surname{
+      position:absolute;
+      top:380px;
+      left:200px;
+  }
+  #email{
+      position:absolute;
+      top:450px;
+      left:200px;
+  }
+  #username{
+  position:absolute;
+  top:520px;
+  left:200px;
+  }
+  #password{
+    position:absolute;
+    top:590px;
+    left:200px;
+  }
+  #first-name-text{
+      position:absolute;
+      top:260px;
+      left:200px;
+  }
+  #surname-text{
+      position:absolute;
+      top:330px;
+      left:200px;
+  }
+  #email-text{
+      position:absolute;
+      top:400px;
+      left:200px;
+  }
+  #username-text{
+    position:absolute;
+    top:470px;
+    left:200px;
+  }
+
+  #password-text{
+    position:absolute;
+    top:540px;
+    left:200px;
+  }
+
+  #submit-button{
+    position:absolute;
+   bottom:0px;
+    left:240px;
+    height:50px;
+    width:100px;
+    background-color:black;
+    color:white;
+  }
+  .error{
+    color:white;
+  }
+  </style>
 
 </body>
 </html>

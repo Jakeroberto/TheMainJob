@@ -9,6 +9,28 @@
         <title>Document</title>
 </head>
 <body>
+
+    <style>
+        button:hover{
+            background:black;
+            color:white;
+        }
+        #log-in-button:hover{
+            background:black;
+            color:white;
+        }
+        #sign-up-button:hover{
+            background:black;
+            color:white;
+        }
+        a{
+            color:black;
+        }
+        a:hover{
+            color:white;;
+        }
+        
+    </style>
     <header>
         <img style="float:left; height:150px; width:200px;" src="store-logo.png">
          Robertos Liquore Store 
@@ -18,7 +40,7 @@
          <button type="submit" name="submit" id="searchButton">Search</button>
          </form>
 
-         <button id="log-in-button"><b><a href="log-in-system/log-in.php">Log in</a></b></button>
+         <button id="log-in-button"><b><a href="log-in-system/log-in.php">Log-in</a></b></button>
          <button id="sign-up-button"><b><a href="log-in-system/sign-up.php">Sign-up</a></b></button>
          <button id="categories-button"><b>Categories</b></button>
          <button id="brands-button"><b>Brands</b></button>
@@ -39,7 +61,7 @@
                 <span><i class="fa fa-pounds"></i></span>
                 <span id="price">13.99</span>
                 </p>
-                <button class="order" type="submit">Add to basket</button> 
+                <button id="add-to-basket" type="submit">Add to basket</button> 
            
     </div>
 
@@ -47,13 +69,13 @@
       <img style="position:absolute; top:62.5px; left:50px;" src="img/carling.jpg">
             <p class="item-details"><b>Carling 20 pack</b></p>
         <div class="quantity">
-                <button class="btn minus-btn disabled type=button">-</button>
-                <input type="text" id="quantity" value="1">
-                <button class="btn plus-btn disabled" type="button">+</button>
+                <button class="btn minus-btn2 disabled type=button" style="position:absolute; bottom:40px; left:0px;">-</button>
+                <input type="text" id="quantity2" value="1">
+                <button class="btn plus-btn2 disabled" type="button" style="position:absolute; bottom:40px; left:77px;">+</button>
         </div>
                 <p class="total-price">
                 <span><i class="fa fa-pounds"></i></span>
-                <span id="price">15.99</span>
+                <span id="price2" style="position:absolute; bottom:-20px; left:30px;" >15.99</span>
                 </p>
                 <button class="order" type="submit">Add to basket</button> 
     </div>
@@ -63,13 +85,13 @@
             <img style="position:absolute; top:87.5px; left:50px;" src="img/corona.jpg">
             <p class="item-details"><b>Corona 20 pack</b></p>
         <div class="quantity">
-                <button class="btn minus-btn disabled type=button">-</button>
-                <input type="text" id="quantity" value="1">
-                <button class="btn plus-btn disabled" type="button">+</button>
+                <button class="btn minus-btn3 disabled type=button" style="position:absolute; bottom:40px; left:0px;">-</button>
+                <input type="text" id="quantity3" value="1">
+                <button class="btn plus-btn3 disabled" type="button" style="position:absolute; bottom:40px; left:77px;">+</button>
         </div>
                 <p class="total-price">
                 <span><i class="fa fa-pounds"></i></span>
-                <span id="price">15.99</span>
+                <span id="price3" style="position:absolute; bottom:-20px; left:30px;" >15.99</span>
                 </p>
                 <button class="order" btype="submit">Add to basket</button> 
     </div>
@@ -348,6 +370,114 @@
                 priceTotal()
             })
 </script>
+
+
+
+
+<script>
+    document.querySelector(".minus-btn2").setAttribute("disabled", "disabled");
+
+    var valueCount2
+
+    var price2 = document.getElementById("price2").innerText;
+
+    function priceTotal2()
+    {
+        var total = valueCount2 * price2;
+        document.getElementById("price2").innerText = total
+    }
+
+    document.querySelector(".plus-btn2").addEventListener("click", function()
+    {
+        valueCount2 = document.getElementById("quantity2").value;
+
+        valueCount2++;
+
+        document.getElementById("quantity2").value = valueCount2
+
+        if (valueCount2 > 0){
+            document.querySelector(".minus-btn2").removeAttribute("disabled")
+            document.querySelector(".minus-btn2").classList.remove("disabled")
+        }
+
+        priceTotal2()
+    })
+
+    document.querySelector(".minus-btn2").addEventListener("click", function()
+    {
+        valueCount2 = document.getElementById("quantity2").value;
+        
+        valueCount2--;
+
+        document.getElementById("quantity2").value = valueCount2
+
+        if(valueCount2 == 0){
+            document.querySelector(".minus-btn2").setAttribute("disabled","disabled")
+        }
+        priceTotal2()
+    })
+</script>
+
+
+
+<script>
+    document.querySelector(".minus-btn3").setAttribute("disabled", "disabled");
+
+    var valueCount3
+
+    var price3 = document.getElementById("price3").innerText;
+
+    function priceTotal3()
+    {
+        var total = valueCount3 * price3;
+        document.getElementById("price3").innerText = total
+    }
+
+    document.querySelector(".plus-btn3").addEventListener("click", function()
+    {
+        valueCount3 = document.getElementById("quantity3").value;
+
+        valueCount3++;
+
+        document.getElementById("quantity3").value = valueCount3
+
+        if (valueCount3 > 0){
+            document.querySelector(".minus-btn3").removeAttribute("disabled")
+            document.querySelector(".minus-btn3").classList.remove("disabled")
+        }
+
+        priceTotal3()
+    })
+
+    document.querySelector(".minus-btn3").addEventListener("click", function()
+    {
+        valueCount3 = document.getElementById("quantity3").value;
+        
+        valueCount3--;
+
+        document.getElementById("quantity3").value = valueCount3
+
+        if(valueCount3 == 0){
+            document.querySelector(".minus-btn3").setAttribute("disabled","disabled")
+        }
+        priceTotal3()
+    })
+</script>
+
+
+<input type="text" id="basket" value="0" style="position:absolute; top:5px; right:50px;">
+
+<script>
+   document.getlementById("add-to-basket").addEventListener("click", function()
+   {
+       basketvalue = document.getElementById("basket").value;
+
+       basketvalue++;
+
+       document.getElementById("basket").value = basketvalue
+   })
+</script>
+
 
 </body>
 </html>

@@ -28,13 +28,16 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $surname = test_input($_POST["surname"]);
     $username = test_input($_POST["username"]);
     $email = test_input($_POST["email"]);
-    $password = test_input($POST["password"]);
+    $password = test_input($_POST["password"]);
 }
+
+echo $password;
 
 
 $sql = "INSERT INTO storeDB.StoreUsers2 (firstname, surname, email, username, password)
 VALUES ('" . $firstname . "', '". $surname . "', '" . $email . "', '" . $username . "', '" . $password . "')";
 
+echo $sql;
 $conn->query($sql);
 
 

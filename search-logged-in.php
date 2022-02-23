@@ -31,21 +31,25 @@
 
 
 
-
 <header>
-        <a href="index.php"><img style="float:left; height:150px; width:200px;" src="store-logo.png"></a>
+
+       <a href="usersAccount.php"> <img style="float:left; height:150px; width:200px;" src="store-logo.png"> </a>
          Robertos Liquore Store 
 
-        <form action ="search.php" method="post">
+        <form action ="search-logged-in.php" method="post">
          <input id="search-bar" type="text" name="search" placeholder="Search for your favourite brands">
          <button type="submit" name="submit" id="searchButton">Search</button>
          </form>
-
-         <button id="log-in-button"><b><a href="log-in-system/log-in.php">Log in</a></b></button>
-         <button id="sign-up-button"><b><a href="log-in-system/sign-up.php">Sign-up</a></b></button>
+         <p style="color:white; font-size:20px; position:absolute; top:5px; right:150px;">  <?php echo  $_SESSION['username']; ?> </p>
+	 <img src="TheMainJob/<?php echo $_SESSION["ProfileImg"]; ?>" style="position:absolute; top:100px; right:175;" />
+         <button id="log-in-button"><b><a href="index.php">Log-out</a></b></button>
+         <button id="sign-up-button"><b><a href="cart.php"><img style="height:50px; width:100px; position:absolute; top: -1.5px; right:-1px;"src="img/cart.jpeg"></a></b></button>
+         <input type="text" id="cartQty<?php echo $row["id"];?>" value="0" style="position:absolute; top:80px; right:12px; height:15px; width:15px; border-radius:50%;">
          <button id="categories-button"><b>Categories</b></button>
          <button id="brands-button"><b>Brands</b></button>
     </header>
+
+
     
     <div class="ad1 active" id="ad1">
       <button id="closeAd">close ad X</button>

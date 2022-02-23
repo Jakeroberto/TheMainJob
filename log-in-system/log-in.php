@@ -6,7 +6,6 @@
     <title>Document</title>
 </head>
 <body>
-
 <?php
 $servername = "localhost";
 $username = "roberto";
@@ -40,8 +39,9 @@ $error = "incorrect log in credentials";
   <img id="logo" src="/TheMainJob/store-logo.png">
   <form action="" method="post">
 <p id="username-text">Username: </p><input type="text" name="username" id="username"><br>
-<p id="password-text">Password: </p><input type="text" name="password" id="password"><br>
+<p id="password-text">Password: </p><input type="password" name="password" id="password"><br>
 <input id="submit-button" type="submit"> 
+<p style="position:absolute; bottom:5px; left: 170px;"> Don't have an account? <a href="sign-up.php">Register here </a> </p>
 </form>
 </div>
 
@@ -101,19 +101,32 @@ $error = "incorrect log in credentials";
 
 
 <?php
- if(isset($_POST['username'])) {
+session_start();
+
+ if(isset($_POST["username"])) {
      $sql = mysqli_query($conn,
      "SELECT * FROM storeDB.StoreUsers2 WHERE 
-     username='" . $_POST["username"] . "' AND password= '" . $_POST["password"] . "' ");
+     username = '" . $_POST["username"] . "' AND password = '" . $_POST["password"] . "' ");
      $num = mysqli_num_rows($sql); 
      if($num > 0) {
       $row = mysqli_fetch_array($sql);
-      header("location:/TheMainJob/index.html");
+      header("location:/TheMainJob/usersAccount.php");
+     $_SESSION["username"] = $row["username"];
+     $_SESSION["firstname"] = $row["firstname"];
+      $_SESSION["surname"] = $row["surname"];
+      $_SESSION["email"] = $row["email"];
+      $_SESSION["reg_date"] = $row["reg_date"];
+      $_SESSION["ProfileImg"] = $row["ProfileImg"];
+      
+
+     
+      
       exit();
   }
      else {
        echo $error;
      }
+    
     }
  ?> 
 

@@ -73,6 +73,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 <br><br>
 <input id="submit-button" type="submit">
 </form>
+<p style="position:absolute; bottom:10px; left:190px;" >Already have an account? <a href="log-in.php"> Log-in </a> </p>
 </div>
 
 <style>
@@ -96,59 +97,59 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
   }
   #first-name{
       position:absolute;
-      top:310px;
+      top:230px;
       left:200px;
   }
   #surname{
       position:absolute;
-      top:380px;
+      top:300px;
       left:200px;
   }
   #email{
       position:absolute;
-      top:450px;
+      top:370px;
       left:200px;
   }
   #username{
   position:absolute;
-  top:520px;
+  top:440px;
   left:200px;
   }
   #password{
     position:absolute;
-    top:590px;
+    top:510px;
     left:200px;
   }
   #first-name-text{
       position:absolute;
-      top:260px;
+      top:180px;
       left:200px;
   }
   #surname-text{
       position:absolute;
-      top:330px;
+      top:250px;
       left:200px;
   }
   #email-text{
       position:absolute;
-      top:400px;
+      top:320px;
       left:200px;
   }
   #username-text{
     position:absolute;
-    top:470px;
+    top:390px;
     left:200px;
   }
 
   #password-text{
     position:absolute;
-    top:540px;
+    top:470px;
     left:200px;
   }
 
   #submit-button{
     position:absolute;
-   bottom:0px;
+   bottom:80px;
     left:240px;
     height:50px;
     width:100px;
